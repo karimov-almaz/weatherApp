@@ -6,7 +6,7 @@ import { SettingComponent } from './setting/setting.component'
 import { WeatherComponent } from './weather/weather.component'
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';  
-import { WeatherService } from './weather/weather.service';
+import { WeatherService } from './services/weather.service';
 import { FormsModule } from '@angular/forms';
 
 const appRoutes=[
@@ -20,7 +20,7 @@ const appRoutes=[
     path:'weather',component: WeatherComponent
   },
   {
-    path: '**', redirectTo: 'assignments'
+    path: '**', redirectTo: 'weather'
   },
 ];
 

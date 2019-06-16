@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { WeatherService } from '../weather/weather.service';
+import { WeatherService } from '../services/weather.service';
+import { UnderscoreService } from '../services/underscore.service'
 
 @Component({
   selector: 'app-setting',
@@ -16,7 +17,7 @@ export class SettingComponent {
   
   cities = [];
 
-  constructor(private router: Router, private weatherService: WeatherService) {
+  constructor(private router: Router, private weatherService: WeatherService, private _helper: UnderscoreService) {
     //localStorage.clear();
     this.cities = JSON.parse(localStorage.getItem('cities')) || [];
   }
@@ -24,13 +25,19 @@ export class SettingComponent {
   addCity(){
     this.error = '';
     this.weatherService.getWeatherByCityName(this.name, this.code).subscribe(
-      (res) => { console.log(res)
-        this.cities.push({
-          name: this.name,
-          code: this.code,
-        });
-        localStorage.setItem('cities', JSON.stringify(this.cities));
-        this.router.navigate(['weather']);
+      (res:any) => { 
+        let newCity = {
+          name: res.name,
+          code: res.sys.country,
+        }
+        if( !this._helper.findWhere(this.cities, newCity)){
+          this.cities.push(newCity);
+          localStorage.setItem('cities', JSON.stringify(this.cities));
+          this.router.navigate(['weather']);
+        } else {
+          this.error = 'City already added'
+          setTimeout(()=>this.error = '', 2000)
+        }
       },
       err => {
         this.error = err.error.message;
