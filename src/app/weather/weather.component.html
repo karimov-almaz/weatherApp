@@ -1,0 +1,35 @@
+<div class="App">
+  <div class="Head">  
+    <div style="white-space: nowrap">
+      {{date}}
+    </div>
+  </div>
+  <div class="error" ng-if='error'>{{error}}</div>
+  <div  *ngFor="let item of weatherItems; index as i" >
+    <div *ngIf="slideIndex==i">
+      <div class="MyText" style=" white-space: nowrap; margin-top:20px">
+        {{item.weather[0].main}}
+      </div>
+      <div class="circle">
+        <span style="font-size: 90px; color: white">
+          <i class="{{cloudyGradation[ ((item.clouds.all / 25) | number:'1.0-0') ]}}"></i>
+        </span>  
+      </div>
+      <div style="display:flex; flex-direction: column; align-items: center; position: relative; top: -15px">
+        <div style="display:flex">
+          <div class="MyText" style="font-size:80px; text-align:center">{{ (item.main.temp - 273) | number: '1.0-0' }}</div>
+          <div class="Ellipse_2"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="Bottom">
+    <div class="tab {{ i == 0 ? 'active' : ''}}" *ngFor="let tab of weatherItems; index as i"  (click)="ChangeSlide(i)">
+      <p style="font-size: 20px; color: white; text-align:center; font-weight:lighter;">
+        {{tab.name}}
+      </p>
+    </div>
+  </div>
+</div>
+
+

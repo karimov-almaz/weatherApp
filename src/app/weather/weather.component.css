@@ -1,0 +1,93 @@
+.App {
+  border-radius: 2px;
+  background-color: rgb(33, 165, 218);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.3);
+  margin:auto;
+  position:relative;
+  width: 100%;
+  height: 575px;
+}
+.Head {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+background-color: #3eb1df;
+width: 100%;
+height: 49px;
+font-size: 20px;
+font-family: "Open Sans";
+color: rgb(255, 255, 255);
+text-align: center;
+font-weight:lighter;
+}
+.Bottom {
+  background-color: rgb(62, 177, 223);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 120px;
+  display: flex;
+}
+.error {
+  font-weight:lighter;
+  font-size: 23px;
+  font-family: "Open Sans";
+  color: red;
+  text-align: center;
+}
+
+.MyText {
+  font-weight:lighter;
+  font-size: 23px;
+  font-family: "Open Sans";
+  color: rgb(255, 255, 255);
+  text-align: center;
+}
+
+.error {
+  font-weight:lighter;
+  font-size: 23px;
+  font-family: "Open Sans";
+  color: red;
+  text-align: center;
+}
+.circle {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    width: 226px;
+    height: 226px;
+    margin:auto;
+    border-radius: 50%;
+    clear:both;
+    background: radial-gradient(circle closest-side,
+    #60bee5 50%,
+    #50b8e2 60%, #50b8e2 70%,
+    #3fb1df 70%, #3fb1df 80%,
+    #30abdd 80%,  #30abdd 90%,
+    #25a7db 90%, #25a7db 99%,
+    #21a5da 100%
+    );
+}
+
+.tab{
+    height:100%;
+    width: 100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.tab.active{
+    background-color:#1c9dd1;
+}
+
+.Ellipse_2 {
+  border-width: 1px;
+  border-color: rgb(255, 255, 255);
+  border-style: solid;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+  z-index: 23;
+}
